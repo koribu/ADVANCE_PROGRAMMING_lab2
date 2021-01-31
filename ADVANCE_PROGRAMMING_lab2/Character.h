@@ -48,7 +48,7 @@ public:
 	Orc(string oName, int oHealth, string grawing) : Character(oName, oHealth)
 	{
 		string abilities[3] = { "Behead", "360 degree swing", "chopshot " };
-		m_weapon = new Weapon("AXE", "Two handed heavy weaponary which used by orc for centuries for glory.", 25, abilities,3);
+		m_weapon = new Weapon("AXE", "Two handed heavy weaponary which used by orcs for centuries for glory!", 25, abilities,3);
 		setGraw(grawing);
 	}
 	void setGraw(string graw)
@@ -123,6 +123,7 @@ public:
 	void DisplayInfo()
 	{
 		cout << "Race: ELF - Name: " << getName() << " - Health: " << getHealth() << endl;
+		cout << *m_weapon;
 	}
 
 	string getName()

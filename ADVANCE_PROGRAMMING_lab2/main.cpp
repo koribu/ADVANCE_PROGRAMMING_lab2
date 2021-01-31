@@ -9,10 +9,10 @@ int main()
 	string n, x;
 	int h, a,del;
 	vector<Character*> chars;
-	cout << "Greetings Dear Player! Welcome to Ultimate Role Playing Game!!!\n\n" << "What do you want to do?\n\n\n";
+	cout << "Greetings Dear Player! Welcome to Ultimate Role Playing Game!!!\n\n" << "What do you want to do?\n";
 	do
 	{
-		cout << "1. Create new character\n\n2. View all characters\n\n3.Delete a character\n\n4. Exit\n\nPlease enter your choose!\n\n";
+		cout <<endl<< "1. Create new character\n2. View all characters\n3. Delete a character\n4. Exit\nPlease enter your choose!\n\n";
 		cin >> choose;
 		switch (choose)
 		{
@@ -36,13 +36,13 @@ int main()
 				cin >> n;
 				cout << "How much health does " << n << " have:" << endl;
 				cin >> h;
-				cout << "What is that moaring sound: " << n << " does:" << endl;
+				cout << "What is that moaring sound " << n << " does:" << endl;
 				cin >> x;
 				chars.push_back(new Undead(n, h, x));
 				break;
 
 			case 3:
-				cout << "What is the name of your Undead: " << endl;
+				cout << "What is the name of your Elf: " << endl;
 				cin >> n;
 				cout << "How much health does " << n << " have:" << endl;
 				cin >> h;
@@ -56,7 +56,7 @@ int main()
 		case 2:
 			for(int i = 0; i<chars.size(); i++)
 			{
-				cout << i+1<<"- ";
+				cout << "- ";
 				chars[i]->DisplayInfo();
 			}
 
@@ -70,7 +70,7 @@ int main()
 				chars[i]->DisplayInfo();
 			}
 			cin >> del;
-			chars.erase(chars.begin() + del);
+			chars.erase(chars.begin() + del-1);
 			break;
 		}
 	}
