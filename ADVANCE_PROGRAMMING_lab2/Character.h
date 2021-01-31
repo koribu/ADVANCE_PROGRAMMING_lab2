@@ -43,7 +43,7 @@ class Orc : public Character
 private:
 	
 	string m_grawing;
-	string m_title;
+	
 public:
 	Orc(string oName, int oHealth, string grawing) : Character(oName, oHealth)
 	{
