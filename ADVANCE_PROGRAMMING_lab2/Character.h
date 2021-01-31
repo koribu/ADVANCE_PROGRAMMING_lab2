@@ -40,9 +40,10 @@ public:
 
 class Orc : public Character
 {
-protected:
+private:
 	
 	string m_grawing;
+	string m_title;
 public:
 	Orc(string oName, int oHealth, string grawing) : Character(oName, oHealth)
 	{
@@ -60,8 +61,12 @@ public:
 	}
 	void DisplayInfo()
 	{
-		cout << "Race: ORC - Name: " << getName() << " " << m_grawing << "! - Health: " << getHealth() << endl << endl;
-		cout << m_weapon;
+		cout << "Race: ORC - Name: " << getName() << " - Health: " << getHealth() << endl;
+		cout << *m_weapon;
+	}
+	string getName()
+	{
+		return  Character::getName() + "'" +getGraw()+"!'";
 	}
 };
 
@@ -87,7 +92,12 @@ public:
 	}
 	void DisplayInfo()
 	{
-		//cout << "Race: ORC - Name: " << getName() << " " << getMoar() << "! - Health: " << getHealth << endl << endl;
+		cout << "Race: Undead - Name: " << getName() <<" - Health: " << getHealth() << endl;
+		cout << *m_weapon;
+	}
+	string getName()
+	{
+		return  Character::getName() + "'" + m_moarning + "!'";
 	}
 };
 
@@ -98,7 +108,7 @@ private:
 public:
 	Elf(string eName, int eHealth, string salute):Character(eName,eHealth)
 	{
-		string abilities[5] = { "Poison Shot", "Triple Shot", "Phonix Shot","Ivy Shot","Iron Shot" };
+		string abilities[5] = { "Poison Shot", "Triple Shot", "Phoenix Shot","Ivy Shot","Iron Shot" };
 		m_weapon = new Weapon("BOW", "Great Elf Bow made of great life tree!", 15, abilities, 5);
 		setSalute(salute);
 	}
@@ -112,7 +122,12 @@ public:
 	}
 	void DisplayInfo()
 	{
-//		cout << "Race: ORC - Name: " << getName() << " " << getSalute() << "! - Health: " << getHealth << endl << endl;
+		cout << "Race: ELF - Name: " << getName() << " - Health: " << getHealth() << endl;
+	}
+
+	string getName()
+	{
+		return  Character::getName() + "'" + m_salute + "!'";
 	}
 };
 #endif

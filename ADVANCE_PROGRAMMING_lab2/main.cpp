@@ -5,8 +5,9 @@
 
 int main()
 {
-	int choose,a;
+	int choose;
 	string n, x;
+	int h, a,del;
 	vector<Character*> chars;
 	cout << "Greetings Dear Player! Welcome to Ultimate Role Playing Game!!!\n\n" << "What do you want to do?\n\n\n";
 	do
@@ -16,8 +17,7 @@ int main()
 		switch (choose)
 		{
 		case 1:
-			
-			int h;
+		
 			cout << "1. Orc     2. Undead     3. Elf" << endl << endl;
 			cin >> a;
 			switch (a)
@@ -56,12 +56,21 @@ int main()
 		case 2:
 			for(int i = 0; i<chars.size(); i++)
 			{
+				cout << i+1<<"- ";
 				chars[i]->DisplayInfo();
 			}
 
 			break;
 		case 3:
-
+			
+			cout << "Which one you want to eliminate!" << endl << endl;
+			for (int i = 0; i < chars.size(); i++)
+			{
+				cout << i + 1 << "- ";
+				chars[i]->DisplayInfo();
+			}
+			cin >> del;
+			chars.erase(chars.begin() + del);
 			break;
 		}
 	}

@@ -50,19 +50,39 @@ public:
 	
 	}
 
-	string getWName();
-	string getDescrib();
-	int getDamage();
-	string getAbility();
-
-
-	friend ostream& operator<<(ostream& out, Weapon w)
+	string getWName()
 	{
-		{
-			out << "Weapon: "<<w.getWName() << "\nDescription: " << w.getDescrib() << "\nDamage: "<<w.getDamage()<<"\nAbility: "<<w.getAbility();
-			return out;
-		}
+		return m_weaponName;
 	}
-};
+	string getDescrib()
+	{
+		return m_describtion;
+	}
+	int getDamage()
+	{
+		return m_damage;
+	}
+	string* getAbility()
+	{
+		return m_abilities;
+	}
+	int getAbilitySize()
+	{
+		return m_abilitySize;
+	}
 
+
+	friend ostream& operator<<(ostream& out, Weapon w);
+
+};
+ostream& operator<<(ostream& out, Weapon w)
+{
+	
+	out << "Weapon: " << w.getWName() << "\nDescription: " << w.getDescrib() << "\nDamage: " << w.getDamage() << "\nAbilities: "<<endl;
+	for (int i = 0; i < w.getAbilitySize(); i++)
+		out << "- " << w.getAbility()[i]<<"  ";
+	out << endl << endl;
+	return out;
+	
+}
 #endif
