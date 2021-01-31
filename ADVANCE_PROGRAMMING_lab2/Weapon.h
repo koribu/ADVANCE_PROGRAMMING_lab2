@@ -11,14 +11,44 @@ private:
 	string m_weaponName;
 	string m_describtion;
 	int m_damage;
-	string m_abilities[5];
+	int m_abilitySize;
+	string* m_abilities;
 public:
-	Weapon(string name, string dscrb, int damage, string abilities[]);
+	Weapon(string name, string dscrb, int damage, string ability[],int arraySize)
+	{
+		setWName(name);
+		setDescrib(dscrb);
+		setDamage(damage);
+		setArraySize(arraySize);
+		setAbility(ability,arraySize);
+	}
 
-	void setWName(string n);
-	void setDescrib(string d);
-	void setDamage(int dmg);
-	void setAbility(string& a);
+	void setWName(string n)
+	{
+		m_weaponName = n;
+	}
+	void setDescrib(string d)
+	{
+		m_describtion = d;
+	}
+	void setDamage(int dmg)
+	{
+		m_damage = dmg;
+	}
+	void setArraySize(int s)
+	{
+		m_abilitySize = s;
+	}
+	void setAbility(string a[],int size)
+	{
+		m_abilities = new string[size];
+		
+		for (int i = 0; i<size;i++)
+		{
+			m_abilities[i] = a[i];
+		}
+	
+	}
 
 	string getWName();
 	string getDescrib();
@@ -26,7 +56,13 @@ public:
 	string getAbility();
 
 
-	friend ostream& operator<<(ostream& out, Weapon w);
+	friend ostream& operator<<(ostream& out, Weapon w)
+	{
+		{
+			out << "Weapon: "<<w.getWName() << "\nDescription: " << w.getDescrib() << "\nDamage: "<<w.getDamage()<<"\nAbility: "<<w.getAbility();
+			return out;
+		}
+	}
 };
 
 #endif

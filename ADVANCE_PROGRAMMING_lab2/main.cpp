@@ -36,7 +36,7 @@ int main()
 				cin >> n;
 				cout << "How much health does " << n << " have:" << endl;
 				cin >> h;
-				cout << "What is that moaring sound " << n << " does:" << endl;
+				cout << "What is that moaring sound: " << n << " does:" << endl;
 				cin >> x;
 				chars.push_back(new Undead(n, h, x));
 				break;
@@ -54,6 +54,10 @@ int main()
 
 			break;
 		case 2:
+			for(int i = 0; i<chars.size(); i++)
+			{
+				chars[i]->DisplayInfo();
+			}
 
 			break;
 		case 3:

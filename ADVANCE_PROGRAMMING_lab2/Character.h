@@ -8,7 +8,7 @@ class Character
 protected:
 	string m_name;
 	int m_health;
-	//Weapon* m_weapon;
+	Weapon* m_weapon;
 	int m_arraySize;
 public:
 	Character(string name, int health)
@@ -40,11 +40,14 @@ public:
 
 class Orc : public Character
 {
-private:
+protected:
+	
 	string m_grawing;
 public:
 	Orc(string oName, int oHealth, string grawing) : Character(oName, oHealth)
 	{
+		string abilities[3] = { "Behead", "360 degree swing", "chopshot " };
+		m_weapon = new Weapon("AXE", "Two handed heavy weaponary which used by orc for centuries for glory.", 25, abilities,3);
 		setGraw(grawing);
 	}
 	void setGraw(string graw)
@@ -57,7 +60,8 @@ public:
 	}
 	void DisplayInfo()
 	{
-//		cout << "Race: ORC - Name: " << getName() << " " << getGraw << "! - Health: " << getHealth << endl << endl;
+		cout << "Race: ORC - Name: " << getName() << " " << m_grawing << "! - Health: " << getHealth() << endl << endl;
+		cout << m_weapon;
 	}
 };
 
@@ -68,6 +72,8 @@ private:
 public:
 	Undead(string uName, int uHealth, string moar) :Character(uName, uHealth)
 	{
+		string abilities[4] = { "Soul Sucker", "Instant Dead", "Mind Control","Dead Riser" };
+		m_weapon = new Weapon("BONEWAND", "Magical wand that made by the loved ones bones!", 18, abilities, 4);
 		setMoar(moar);
 	}
 
@@ -92,6 +98,8 @@ private:
 public:
 	Elf(string eName, int eHealth, string salute):Character(eName,eHealth)
 	{
+		string abilities[5] = { "Poison Shot", "Triple Shot", "Phonix Shot","Ivy Shot","Iron Shot" };
+		m_weapon = new Weapon("BOW", "Great Elf Bow made of great life tree!", 15, abilities, 5);
 		setSalute(salute);
 	}
 	void setSalute(string salute)
